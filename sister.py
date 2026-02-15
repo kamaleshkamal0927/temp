@@ -1,17 +1,38 @@
 import streamlit as st
+from streamlit.components.v1 import html
 
-st.set_page_config(page_title="Miss My Sister", page_icon="💖")
+st.set_page_config(page_title="Miss My Sister", page_icon="❤️", layout="centered")
 
-st.title("💖 I Miss My Sister")
+# Floating hearts animation
+html("""
+<style>
+.heart {
+  position: fixed;
+  font-size: 28px;
+  animation: float 6s linear infinite;
+}
+@keyframes float {
+  0% {bottom:0; opacity:1;}
+  100% {bottom:100%; opacity:0;}
+}
+</style>
 
-# Upload image
-image = st.file_uploader("Upload your sister's photo", type=["jpg", "png", "jpeg"])
+<script>
+setInterval(() => {
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerHTML = "❤️";
+  heart.style.left = Math.random()*100 + "vw";
+  document.body.appendChild(heart);
+  setTimeout(()=>heart.remove(),6000);
+}, 400);
+</script>
+""")
 
-if image:
-    st.image(image, caption="My Lovely Sister ❤️", width=300)
+# Main text
+st.markdown("<h1 style='text-align:center;'>❤️ Meenakshi Ka ❤️</h1>", unsafe_allow_html=True)
+st.markdown("<h2 style='text-align:center;'>🥺 I miss my sister so much 💖</h2>", unsafe_allow_html=True)
 
-if st.button("Show My Message"):
-    st.success("🥺 I MISS MY SISTER SO MUCH ❤️")
-
-st.markdown("---")
-st.caption("Made with ❤️ using Streamlit")
+# Cute animated GIFs
+st.image("https://media.giphy.com/media/l0HlBO7eyXzSZkJri/giphy.gif", width=250)
+st.image("https://media.giphy.com/media/3oriO
