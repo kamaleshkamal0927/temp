@@ -38,4 +38,3 @@ st.image("https://media.giphy.com/media/l0HlBO7eyXzSZkJri/giphy.gif", width=250)
 st.image("https://media.giphy.com/media/3oriO0OEd9QIDdllqo/giphy.gif", width=250)
 
 st.caption("Made with ❤️ using Streamlit")
-
